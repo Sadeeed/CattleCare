@@ -1,0 +1,40 @@
+body{
+    background: #DFD8CA !important;
+}
+
+.one, .two, .three, .four, .five{
+background:#105652;    
+}
+
+.one, .two{
+    display: inline-block;
+    margin-left: 100px;
+    margin-right: auto;
+}
+
+.iconSize{
+  background-color: #FBF3E4;
+  height: 60px;
+  color:#FFBD35 ;
+}
+
+.row{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.color{
+    background-color: #105652;
+    color: whitesmoke;
+    border-color:#FFBD35 ;
+    border-width: 2px;
+}
+.color:hover{
+
+    background-color:#e7ab34;
+    border-color:#e7ab34 ;
+}
+
+.card-text, .card-title{
+color: rgb(216, 215, 215);
+}
