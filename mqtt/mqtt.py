@@ -12,8 +12,9 @@ def on_connect(client, userdata, flags, rc):
 
 def on_message(client, userdata, msg):
     topic = msg.topic
-    print(f"{topic}: {msg.payload}")
-    collar_data = CollarData(topic=topic, message=msg.payload)
+    message = msg.payload.decode("utf-8")
+    print(f"{topic}: {message}")
+    collar_data = CollarData(topic=topic, message=message)
     collar_data.save()
 
 
