@@ -14,4 +14,5 @@ class IndexView(TemplateView):
         context["X"] = CollarData.objects.filter(topic='collar/accel/X').last()
         context["Y"] = CollarData.objects.filter(topic='collar/accel/Y').last()
         context["Z"] = CollarData.objects.filter(topic='collar/accel/Z').last()
+        context["bpm"] = CollarData.objects.filter(topic='collar/bpm').last()
         return self.render_to_response(context)

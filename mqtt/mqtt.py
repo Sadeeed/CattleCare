@@ -3,7 +3,7 @@ import paho.mqtt.client as mqtt
 from mqtt.models import CollarData
 
 topics = [("collar/temperature", 1), ("collar/bellowing", 1),
-          ("collar/accel/X", 1), ("collar/accel/Y", 1), ("collar/accel/Z", 1)]
+          ("collar/accel/X", 1), ("collar/accel/Y", 1), ("collar/accel/Z", 1), ("collar/bpm", 1)]
 
 
 def on_connect(client, userdata, flags, rc):
