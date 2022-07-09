@@ -1,3 +1,6 @@
+import csv
+from datetime import datetime
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from . import mqtt
@@ -19,7 +22,7 @@ class IndexView(LoginRequiredMixin, TemplateView):
         return self.render_to_response(context)
 
 
-class dbtoCSVView(TemplateView):
+class dbToCSVView(TemplateView):
     template_name = 'temp.html'
 
     def get(self, request, *args, **kwargs):
@@ -39,6 +42,7 @@ class dbtoCSVView(TemplateView):
             csvfile = csv.writer(csvfile)
             csvfile.writerow(['#', 'temperature', 'bellowing', 'x', 'y', 'z', 'bpm', 'gas', 'leg'])
             for t, b, x, y, z, bp, g, l in zip(temperature, bellowing, x, y, z, bpm, gas, leg):
-                csvfile.writerow([count, t.message, b.message, x.message, y.message, z.message, bp.message, g.message, l.message])
+                csvfile.writerow(
+                    [count, t.message, b.message, x.message, y.message, z.message, bp.message, g.message, l.message])
                 count += 1
         return self.render_to_response(context)
