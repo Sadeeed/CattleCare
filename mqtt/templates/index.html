@@ -1,138 +1,330 @@
 {% load static %}
 
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cattle Care</title>
-    <meta name="description"
-          content="IOT based smart and secure cattle health monitoring system with the use of neural network and high end security features for user and data authentication">
-    <meta name="author" content="Abubakar Nawaz">
 
-    <link rel="icon" href="{% static 'images/favicon.ico' %}">
-    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
 
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="./vendors/css/bootstrap.min.css"> -->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
+    <link rel="stylesheet" href="{% static 'css/grid.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/herobox.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/features.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/howitworks.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/team.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/authentication/style.css' %}" />
+    <!-- <link rel="stylesheet" href="resources/css/contactus.css" /> -->
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/button.css' %}" />
+  </head>
+  <body>
+    <div class="nav-main">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="nav-logo navbar-brand" href="#"> Cattle Care </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="nav-navigation collapse navbar-collapse"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-navigation-1 nav-item">
+                <a class="nav-link" aria-current="page" href="/index.html">
+                  Home
+                </a>
+              </li>
+              <li class="nav-navigation-2 nav-item">
+                <a class="nav-link" href="#"> Features </a>
+              </li>
+              <li class="nav-navigation-3 nav-item">
+                <a class="nav-link" href="#"> How it works </a>
+              </li>
+              <li class="nav-navigation-4 nav-item">
+                <a class="nav-link">Our team</a>
+              </li>
 
-<body>
+              <li class="nav-navigation-5 nav-item">
+                <a class="nav-link" href="#"> Contact us </a>
+              </li>
+            </ul>
+          </div>
 
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Cattle Care</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'two_factor:setup' %}">2FA</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!--the container is our grid with 2 cards are in top row and three cards in 2nd row -->
-<!--1st row-->
-<div class="container">
-    <div class="row">
-        <div class="col">    <!--columns represent our cards-->
-            <div class="card one text-center" style="width: 18rem;">
-                <img class="card-img-top iconSize" src="{% static 'images/thermometer-outline.svg' %}"
-                     alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Temperature</h5>
-                    <p class="card-text">{{ temperature.message }}</p>
-                    <a href="#" class="btn btn-primary color">Details</a>
-                </div>
-            </div>
+          <div class="nav-button">
+            <a
+              class="nav-button_1 btn btn-fw primary"
+              href="{% url 'login' %}"
+              >Sign in</a
+            >
+            <a
+              class="nav-button_2 btn btn-outline b-primary text-primary"
+              href="{% url 'signup' %}"
+              >Sign up</a
+            >
+          </div>
         </div>
-        <div class="col">
-            <div class="card two text-center" style="width: 18rem;">
-                <img class="card-img-top iconSize" src="{% static 'images/mic-outline.svg' %}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Sound</h5>
-                    <p class="card-text">{{ bellowing.message }}</p>
-                    <a href="#" class="btn btn-primary color">Details</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--2nd row-->
-    <div class="row">
-        <div class="col">
-            <div class="card three text-center" style="width: 18rem;">
-                <img class="card-img-top iconSize" src="{% static 'images/arrow-forward-outline.svg' %}"
-                     alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Coordinate X</h5>
-                    <p class="card-text">{{ X.message }}</p>
-                    <a href="#" class="btn btn-primary color">Details</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card four text-center" style="width: 18rem;">
-                <img class="card-img-top iconSize" src="{% static 'images/arrow-down-outline.svg' %}"
-                     alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Coordinate Y</h5>
-                    <p class="card-text">{{ Y.message }}</p>
-                    <a href="#" class="btn btn-primary color">Details</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card five text-center" style="width: 18rem;">
-                <img class="card-img-top iconSize" src="{% static 'images/return-down-back-outline.svg' %}"
-                     alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Coordinate Z</h5>
-                    <p class="card-text">{{ Z.message }}</p>
-                    <a href="#" class="btn btn-primary color">Details</a>
-                </div>
-            </div>
-        </div>
+      </nav>
     </div>
 
-    <!--3rd row-->
-    <div class="row">
-        <div class="col">
-            <div class="card one" style="width: 18rem;">
-                <img class="card-img-top iconSize" src="{% static 'images/arrow-forward-outline.svg' %}"
-                     alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">BPM</h5>
-                    <p class="card-text">{{ bpm.message }}</p>
-                    <a href="#" class="btn btn-primary color">Details</a>
-                </div>
-            </div>
-        </div>
+    <div class="hero-main">
+      <h1 class="hero-heading">
+        Monitor your cattle activity from
+        <br />
+      </h1>
+      <h1 class="hero-heading-2">Anywhere in the World</h1>
+
+      <div class="hero-button">
+        <button class="hero-button-1 btn btn-block btn-fw primary">
+          Get Started
+        </button>
+      </div>
     </div>
-</div>
+    
 
+    <div class="feature-main">
+      <h2 class="feature-main-heading">Features</h2>
+      <div class="margin_100 feature-main-1">
+        <div class="feature-main-1-left">
+          <h3 class="margin_50">
+            Integrated with Wireles <br />
+            Sensor Network Technology
+          </h3>
+          <p>
+            Sed velit lectus, porttitor eu convallis sit amet, semper eget
+            mauris. Integer in pulvinar mauris. <br />
+            Donec facilisis placerat magna sed cursus. Mauris vel tristique
+            arcu. Duis congue orci id libero <br />
+            dictum sollicitudin. Curabitur dapibus arcu leo, condimentum tempus
+            augue condimentum sed.
+          </p>
+        </div>
+        <div class="feature-main-1-right">
+          <img
+            class="feature-image-1"
+            src="{% static 'images/feature1.jpg' %}"
+            alt=""
+          />
+        </div>
+      </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-<script src="script.js"></script>
-</body>
+      <div class="margin_100 feature-main-2">
+        <div class="feature-main-2-left">
+          <h3 class="margin_50">
+            Disease detection using <br />
+            Artificial Neural Network
+          </h3>
+          <p>
+            Sed velit lectus, porttitor eu convallis sit amet, semper eget
+            mauris. Integer in pulvinar mauris. <br />
+            Donec facilisis placerat magna sed cursus. Mauris vel tristique
+            arcu. Duis congue orci id libero <br />
+            dictum sollicitudin. Curabitur dapibus arcu leo, condimentum tempus
+            augue condimentum sed.
+          </p>
+        </div>
+        <div class="feature-main-2-right">
+          <img
+            class="feature-image-2"
+            src="{% static 'images/feature2.jpg' %}"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="margin_100 feature-main-3">
+        <div class="feature-main-3-left">
+          <h3 class="margin_50">
+            Secure data transmission <br />
+            and User authentication
+          </h3>
+          <p>
+            Sed velit lectus, porttitor eu convallis sit amet, semper eget
+            mauris. Integer in pulvinar mauris. <br />
+            Donec facilisis placerat magna sed cursus. Mauris vel tristique
+            arcu. Duis congue orci id libero <br />
+            dictum sollicitudin. Curabitur dapibus arcu leo, condimentum tempus
+            augue condimentum sed.
+          </p>
+        </div>
+        <div class="feature-main-3-right">
+          <img
+            class="feature-image-3"
+            src="{% static 'images/feature3.jpg' %}"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="feature-main-4">
+        <div class="feature-main-4-left">
+          <h3 class="margin_50">
+            User friendly dashboard <br />
+            to access your cattle data
+          </h3>
+          <p>
+            Sed velit lectus, porttitor eu convallis sit amet, semper eget
+            mauris. Integer in pulvinar mauris. <br />
+            Donec facilisis placerat magna sed cursus. Mauris vel tristique
+            arcu. Duis congue orci id libero <br />
+            dictum sollicitudin. Curabitur dapibus arcu leo, condimentum tempus
+            augue condimentum sed.
+          </p>
+        </div>
+        <div class="feature-main-4-right">
+          <img
+            class="feature-image-4"
+            src="{% static 'images/feature4.jpg' %}"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="work-main">
+      <h2 class="work-heading">HOW IT WORKS &mdash; SIMPLE AS 1, 2, 3</h2>
+
+      <div>
+        <div class="work-steps">
+          <span class="work-steps-no">1</span>
+          <p class="work-steps-text">Get your account setup</p>
+        </div>
+        <div class="work-steps">
+          <span class="work-steps-no">2</span>
+          <p class="work-steps-text">
+            Attach the prototype to cattle collar and leg.
+          </p>
+        </div>
+        <div class="work-steps">
+          <span class="work-steps-no">3</span>
+          <p class="work-steps-text">Connect the product with the internet.</p>
+        </div>
+      </div>
+      <h6 style="margin-left: 30%; margin-top: 35px">
+        And you are ready to go....
+      </h6>
+    </div>
+
+    <div class="team">
+      <h2 class="team-heading">Our Team</h2>
+      <div class="team-main">
+        <div>
+          <img class="team-image" src="{% static 'images/talha.jpeg' %}" alt="" />
+          <h4>Talha Ahmad</h4>
+          <p></p>
+        </div>
+        <div>
+          <img class="team-image" src="{% static 'images/sadeed.jpeg' %}" alt="" />
+          <h4>Sadeed Waseem</h4>
+          <p></p>
+        </div>
+        <div>
+          <img class="team-image" src="{% static 'images/ismail.jpg' %}" alt="" />
+          <h4>Sheikh Ismail</h4>
+          <p></p>
+        </div>
+        <div>
+          <img class="team-image" src="{% static 'images/abubakar.jpeg' %}" alt="" />
+          <h4>Abubakar Nawaz</h4>
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white">
+      <div id="app" class="app contact_us_form">
+        <div class="p-a-md r text-color bg-white">
+          <div class="contact_us_padding">
+            <h2 class="contact_h2">CONTACT US</h2>
+            <div class="md-form-group contact-form">
+              <input type="text" class="md-input" required />
+              <label>Your Name</label>
+            </div>
+
+            <div class="md-form-group contact-form">
+              <input type="email" class="md-input" required />
+              <label>Email</label>
+            </div>
+
+            <div class="md-form-group contact-form">
+              <textarea class="md-input form_text_area" rows="4"></textarea>
+              <label>Message</label>
+            </div>
+            <div class="d-md-block">
+              <button
+                type="submit"
+                class="btn primary p-x-md contact_us_btn"
+                style="width: 250px"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="row">
+        <div class="col span-1-of-2">
+          <ul class="footer-nav">
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">iOS App</a></li>
+            <li><a href="#">Android App</a></li>
+          </ul>
+        </div>
+        <div class="col span-1-of-2">
+          <ul class="social-links">
+            <li>
+              <a href="#"><i class="ion-social-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-social-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-social-googleplus"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-social-instagram"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <p>Copyright &copy; 2022 by Cattle Care. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

@@ -7,12 +7,12 @@ from .forms import WebSignUpForm
 
 class SignUpView(CreateView):
     form_class = WebSignUpForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('login')
     template_name = 'signup.html'
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect(reverse('index'))
+            return redirect(reverse('dashboard'))
         return super().get(request, *args, **kwargs)
 
     def form_valid(self, form):

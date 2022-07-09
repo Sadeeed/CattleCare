@@ -1,14 +1,17 @@
 import csv
 from datetime import datetime
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from . import mqtt
 from .models import CollarData
 
 
-class IndexView(LoginRequiredMixin, TemplateView):
-    template_name = 'index.html'
+class IndexView(TemplateView):
+    template_name = "index.html"
+
+
+class DashboardView(LoginRequiredMixin, TemplateView):
+    template_name = 'dashboard.html'
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
