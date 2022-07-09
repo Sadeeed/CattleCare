@@ -1,0 +1,28 @@
+
+
+.btn-outline {
+  border-color: #0cc2aa;
+  border-width: 1px;
+  background-color: transparent;
+  box-shadow: none !important;
+}
+
+.btn.b-primary:hover,
+.btn.b-primary:focus,
+.btn.primary:hover,
+.btn.primary:focus {
+  color: rgba(255, 255, 255, 0.87) !important;
+  background-color: #0cc2aa;
+}
+
+.text-primary,
+.text-primary-hover a:hover {
+  color: #0cc2aa !important;
+}
+
+.primary {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0cc2aa;
+}
+
+

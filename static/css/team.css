@@ -1,0 +1,36 @@
+.team{
+    text-align: center;
+    padding: 60px 0;
+    background-color: rgba(0, 0, 0, 0.774);
+    color: white;
+}
+
+.team-heading{
+    margin-bottom: 40px;
+    
+}
+
+.team-main{
+  
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.team-main h4{
+    padding-bottom: 10px;
+}
+
+.team-main h4:hover{
+   
+    border-bottom: 2px solid #0cc2aa;;
+    cursor: pointer;
+}
+.team-image{
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    
+    
+}

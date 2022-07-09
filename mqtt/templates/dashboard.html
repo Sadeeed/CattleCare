@@ -1,0 +1,121 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Cattle Care</title>
+    <meta name="description"
+          content="IOT based smart and secure cattle health monitoring system with the use of neural network and high end security features for user and data authentication">
+    <meta name="author" content="Abubakar Nawaz">
+
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+
+{% include 'snippets/header.html' %}
+
+<!--the container is our grid with 2 cards are in top row and three cards in 2nd row -->
+<!--1st row-->
+<div class="container">
+    <div class="row">
+        <div class="col">    <!--columns represent our cards-->
+            <div class="card one text-center" style="width: 18rem;">
+                <img class="card-img-top iconSize" src="{% static 'images/thermometer-outline.svg' %}"
+                     alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Temperature</h5>
+                    <p class="card-text">{{ temperature.message }}</p>
+                    <a href="#" class="btn btn-primary color">Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card two text-center" style="width: 18rem;">
+                <img class="card-img-top iconSize" src="{% static 'images/mic-outline.svg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Sound</h5>
+                    <p class="card-text">{{ bellowing.message }}</p>
+                    <a href="#" class="btn btn-primary color">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--2nd row-->
+    <div class="row">
+        <div class="col">
+            <div class="card three text-center" style="width: 18rem;">
+                <img class="card-img-top iconSize" src="{% static 'images/arrow-forward-outline.svg' %}"
+                     alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Coordinate X</h5>
+                    <p class="card-text">{{ X.message }}</p>
+                    <a href="#" class="btn btn-primary color">Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card four text-center" style="width: 18rem;">
+                <img class="card-img-top iconSize" src="{% static 'images/arrow-down-outline.svg' %}"
+                     alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Coordinate Y</h5>
+                    <p class="card-text">{{ Y.message }}</p>
+                    <a href="#" class="btn btn-primary color">Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card five text-center" style="width: 18rem;">
+                <img class="card-img-top iconSize" src="{% static 'images/return-down-back-outline.svg' %}"
+                     alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Coordinate Z</h5>
+                    <p class="card-text">{{ Z.message }}</p>
+                    <a href="#" class="btn btn-primary color">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--3rd row-->
+    <div class="row">
+        <div class="col">
+            <div class="card one" style="width: 18rem;">
+                <img class="card-img-top iconSize" src="{% static 'images/arrow-forward-outline.svg' %}"
+                     alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">BPM</h5>
+                    <p class="card-text">{{ bpm.message }}</p>
+                    <a href="#" class="btn btn-primary color">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>

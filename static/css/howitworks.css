@@ -1,0 +1,30 @@
+.work-main {
+  padding: 50px 0;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.87);
+  padding-top: 100px;
+  padding-bottom: 90px;
+}
+
+.work-heading {
+  display: inline-block;
+  margin-left: 30%;
+  margin-bottom: 60px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #0cc2aa;
+}
+
+.work-steps {
+  margin-bottom: 20px;
+  margin-left: 30%;
+}
+
+.work-steps-text {
+  display: inline-block;
+  margin-left: 20px;
+}
+.work-steps-no {
+  border: 1px solid #0cc2aa;
+  padding: 5px 10px;
+  border-radius: 50%;
+}

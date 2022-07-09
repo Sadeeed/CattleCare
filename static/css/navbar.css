@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+.nav-main {
+
+  color: white;
+  width: 100%;
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
+  z-index: 999999999999999;
+  opacity: 1;
+  background-color: #2c2c2c ;
+}
+
+.nav-logo {
+  margin-left: 7.5%;
+  color: white;
+}
+
+.nav-navigation {
+  margin-left: 140px;
+}
+
+.nav-navigation-1,
+.nav-navigation-2,
+.nav-navigation-3,
+.nav-navigation-4 {
+  margin-right: 30px;
+}
+
+.nav-link{
+  color: white;
+}
+
+.nav-button {
+  margin-right: 7.5%;
+}
+
+.nav-button_1 {
+  margin-right: 20px;
+}
