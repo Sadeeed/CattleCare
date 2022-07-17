@@ -13,34 +13,63 @@
     </div>
     <h2 class="sensors-heading">Sensors Raw Parameters </h2>
     <div class="dashboard_home_strip1">
-        <div class="three-sensors1">
-            <h2 style="color: black; text-align: center;margin-top: 25px;">Temperature</h2>
-            <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">36 °C</p>
+        <div class="three-sensors1" style="text-align: center;">
+            <h2 style="color: gray;margin-top: 40px">Temperature</h2>
+            <ion-icon name="thermometer-outline"
+                      style="color: rgb(182, 170, 36); font-size: 35px;margin-top: 10px;margin-bottom: 20px;"></ion-icon>
+            <h5 style="color: rgb(65, 65, 65);">{{ temperature.message }}</h5>
         </div>
-        <div class="three-sensors2">
-            <h2 style="color: black; text-align: center;margin-top: 25px;">Heart Rate</h2>
-            <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">36 BPM</p>
+        <div class="three-sensors2" style="text-align: center;">
+            <h2 style="color: gray;margin-top: 40px">Heart Rate</h2>
+            <ion-icon name="pulse-outline"
+                      style="color: rgb(174, 63, 63);font-size: 35px;margin-top: 10px;margin-bottom: 20px;"></ion-icon>
+            <h5 style="color: rgb(65, 65, 65);">{{ bpm.message }}</h5>
         </div>
-        <div class="three-sensors3">
-            <h2 style="color: black; text-align: center;margin-top: 25px;">Ketosis</h2>
-            <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">Not
-                Detected</p>
+        <div class="three-sensors3" style="text-align: center;">
+            <h2 style="color: gray;margin-top: 40px">Ketosis</h2>
+            <ion-icon name="medkit-outline"
+                      style="color: rgb(40, 93, 166);font-size: 35px;margin-top: 10px;margin-bottom: 20px;"></ion-icon>
+            <h5 style="color: rgb(65, 65, 65);">{{ ketosis.message }}</h5>
         </div>
     </div>
 
     <div class="dashboard_home_strip2">
-        <div class="three-sensors1 ">
-            <h2 style="color: black; text-align: center;margin-top: 25px;">Feed Intake</h2>
-            <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">Idle</p>
+        <div class="three-sensors1 " style="text-align: center;">
+            <h2 style="color: gray;margin-top: 40px">Feed Intake</h2>
+            <ion-icon name="leaf-sharp"
+                      style="color: rgb(65, 112, 48);font-size: 35px; margin-top: 10px;margin-bottom: 20px;"></ion-icon>
+            <h5 style="color: rgb(65, 65, 65);">{{ mvmt.message }}</h5>
         </div>
-        <div class="two-sensors">
-            <h2 style="color: black; text-align: center;margin-top: 25px;">Movement</h2>
-            <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">Idle</p>
+        <div class="three-sensors2" style="text-align: center;">
+            <h2 style="color: gray;margin-top: 40px">Bellowing</h2>
+            <ion-icon name="mic-sharp"
+                      style="color: rgb(163, 57, 164);font-size: 35px;margin-top: 10px;margin-bottom: 20px;"></ion-icon>
+            <h5 style="color: rgb(65, 65, 65);">{{ bellowing.message }}</h5>
         </div>
+        <div class="three-sensors3" style="text-align: center;">
+            <h2 style="color: gray;margin-top: 40px">Movement</h2>
+            <ion-icon name="accessibility-sharp"
+                      style="color: rgb(108, 54, 77);font-size: 35px;margin-top: 10px;margin-bottom: 20px;"></ion-icon>
+            <h5 style="color: rgb(65, 65, 65);">{{ mvmt.message }}</h5>
+        </div>
+        <!-- <div class="two-sensors"></div> -->
+    </div>
+
+    <h2 class="ann-heading">Processed data from ANN </h2>
+    <div class="dashboard_home_strip3">
+        <div class="first-disease">
+            <h1 style="color: rgb(67, 34, 62);margin-top: 50px;margin-left:80px;font-size: 40px;">
+                Health Status
+            </h1>
+
+        </div>
+        {#        <div class="second-disease"></div>#}
+        {#        <div class="third-disease"></div>#}
     </div>
 
     <h2 class="chart-heading">Variations of cattle health parameters over time</h2>
-    <div class="charts-container">
+    {#  class="charts-container"  #}
+    <div class="">
         <div class="chart-wraper">
             <h3 class="inchart-heading">Temperature</h3>
             <canvas id="myChart1"></canvas>
@@ -51,7 +80,7 @@
         </div>
     </div>
 
-    <div class="charts-container">
+    <div class="">
         <div class="chart-wraper">
             <h3 class="inchart-heading">Gas Sensor</h3>
             <canvas id="myChart3"></canvas>
@@ -62,13 +91,37 @@
         </div>
     </div>
 
-    <div class="charts-container">
+    <div class="">
+
+        <div class="chart-wraper">
+            <h3 class="inchart-heading">Bellowing</h3>
+            <canvas id="myChart6"></canvas>
+        </div>
+
         <div class="chart-wraper">
             <h3 class="inchart-heading">Cattle Movement</h3>
             <canvas id="myChart5"></canvas>
         </div>
 
     </div>
+
+    {{ temp_data |json_script:"temp_data" }}
+    {{ temp_ts |json_script:"temp_ts" }}
+
+    {{ bpm_data |json_script:"bpm_data" }}
+    {{ bpm_ts |json_script:"bpm_ts" }}
+
+    {{ x_data |json_script:"x_data" }}
+    {{ x_ts |json_script:"x_ts" }}
+
+    {{ bellow_data |json_script:"bellow_data" }}
+    {{ bellow_ts |json_script:"bellow_ts" }}
+
+    {{ ketosis_data |json_script:"ketosis_data" }}
+    {{ ketosis_ts |json_script:"ketosis_ts" }}
+
+    {{ mvmt_data |json_script:"mvmt_data" }}
+    {{ mvmt_ts |json_script:"mvmt_ts" }}
 
 {% endblock %}
 
@@ -105,42 +158,52 @@
         };
 
         const temperature = {
-            labels: labels,
+            labels: JSON.parse(document.getElementById('temp_ts').textContent).slice(-150),
             datasets: [{
                 label: 'values over time',
                 backgroundColor: '#0cc2aa',
                 borderColor: '#0cc2aa',
-                data: [35.02, 35.88, 35.88, 35.75, 35.94, 36],
+                data: JSON.parse(document.getElementById('temp_data').textContent).slice(-150),
             }]
         };
 
         const bpm = {
-            labels: labels,
+            labels: JSON.parse(document.getElementById('bpm_ts').textContent).slice(-150),
             datasets: [{
                 label: 'values over time',
                 backgroundColor: '#0cc2aa',
                 borderColor: '#0cc2aa',
-                data: [29, 35, 36, 37, 39, 36],
+                data: JSON.parse(document.getElementById('bpm_data').textContent).slice(-150),
             }]
         };
 
         const ketosis = {
-            labels: labels,
+            labels: JSON.parse(document.getElementById('ketosis_ts').textContent).slice(-150),
             datasets: [{
                 label: 'values over time',
                 backgroundColor: '#0cc2aa',
                 borderColor: '#0cc2aa',
-                data: [0, 0, 1, 0, 0, 0],
+                data: JSON.parse(document.getElementById('ketosis_data').textContent).slice(-150),
             }]
         };
 
         const mvmt = {
-            labels: labels,
+            labels: JSON.parse(document.getElementById('mvmt_ts').textContent).slice(-150),
             datasets: [{
                 label: 'values over time',
                 backgroundColor: '#0cc2aa',
                 borderColor: '#0cc2aa',
-                data: [1, 1, 1, 0, 1, 0],
+                data: JSON.parse(document.getElementById('mvmt_data').textContent).slice(-150),
+            }]
+        };
+
+        const bellow = {
+            labels: JSON.parse(document.getElementById('bellow_ts').textContent).slice(-150),
+            datasets: [{
+                label: 'values over time',
+                backgroundColor: '#0cc2aa',
+                borderColor: '#0cc2aa',
+                data: JSON.parse(document.getElementById('bellow_data').textContent).slice(-150),
             }]
         };
 
@@ -165,6 +228,12 @@
         const config = {
             type: 'line',
             data: data,
+            options: {}
+        };
+
+        const bellow_config = {
+            type: 'line',
+            data: bellow,
             options: {}
         };
 
@@ -202,7 +271,7 @@
 
         const myChart6 = new Chart(
             document.getElementById('myChart6'),
-            config
+            bellow_config
         );
     </script>
 {% endblock %}

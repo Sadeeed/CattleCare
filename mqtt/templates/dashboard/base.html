@@ -22,6 +22,7 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
     />
 
+    <link rel="stylesheet" href="{% static 'css/user.css' %}" />
     <link rel="stylesheet" href="{% static 'css/dashboard/sidebar.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/dashboard/topbar.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/dashboard/layout-home.css' %}"/>
@@ -51,9 +52,9 @@
                 <span class="topIconBadge">2</span>
             </div>
             <div class="topbarIconContainer">
-                <ion-icon class="icon_size" name="settings-outline"></ion-icon>
+                <a href="{% url 'two_factor:profile' %}"><ion-icon class="icon_size" name="settings-outline"></ion-icon></a>
             </div>
-            <img src="{% static 'images/talha.jpeg' %}" alt="" class="topAvatar"/>
+            <a href="{% url 'dashboard-profile' %}"><img src="{% static 'images/talha.jpeg' %}" alt="" class="topAvatar" /></a>
         </div>
     </div>
 </div>
@@ -92,6 +93,8 @@
 {#            </ul>#}
         </footer>
     </div>
+    {% block extra %}
+    {% endblock %}
 </div>
 
 {% block extraJs %}{% endblock %}

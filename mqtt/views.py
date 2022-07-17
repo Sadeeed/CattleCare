@@ -1,4 +1,5 @@
 import csv
+import random
 from datetime import datetime
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
@@ -15,14 +16,6 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
-        mqtt.client.loop_start()
-        # context["temperature"] = CollarData.objects.filter(topic='collar/temperature').last()
-        # context["bellowing"] = CollarData.objects.filter(topic='collar/bellowing').last()
-        # context["X"] = CollarData.objects.filter(topic='collar/accel/X').last()
-        # context["Y"] = CollarData.objects.filter(topic='collar/accel/Y').last()
-        # context["Z"] = CollarData.objects.filter(topic='collar/accel/Z').last()
-        # context["bpm"] = CollarData.objects.filter(topic='collar/bpm').last()
-        # context['data'] = CollarData.objects.all().order_by('-timestamp')
 
         temperature = CollarData.objects.filter(topic='collar/temperature')
         bellow = CollarData.objects.filter(topic='collar/bellowing')
@@ -42,6 +35,47 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
 class DashboardDetailsView(TemplateView):
     template_name = 'dashboard/pages/details.html'
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        mqtt.client.loop_start()
+        context["temperature"] = CollarData.objects.filter(topic='collar/temperature').last()
+        context["bellowing"] = CollarData.objects.filter(topic='collar/bellowing').last()
+        context["X"] = CollarData.objects.filter(topic='collar/accel/X').last()
+        context["Y"] = CollarData.objects.filter(topic='collar/accel/Y').last()
+        context["Z"] = CollarData.objects.filter(topic='collar/accel/Z').last()
+        context["bpm"] = CollarData.objects.filter(topic='collar/bpm').last()
+        context["ketosis"] = CollarData.objects.filter(topic='collar/ketosis').last()
+        context["mvmt"] = CollarData.objects.filter(topic='leg/mvmt/').last()
+
+        context['temp_data'] = [float(x.message) for x in CollarData.objects.filter(topic='collar/temperature')]
+        context['temp_ts'] = [x.timestamp.strftime("%H:%M:%S") for x in
+                              CollarData.objects.filter(topic='collar/temperature')]
+
+        context['bpm_data'] = [float(x.message) for x in CollarData.objects.filter(topic='collar/bpm')]
+        context['bpm_ts'] = [x.timestamp.strftime("%H:%M:%S") for x in CollarData.objects.filter(topic='collar/bpm')]
+
+        context['x_data'] = [float(x.message) for x in CollarData.objects.filter(topic='collar/X')]
+        context['x_ts'] = [x.timestamp.strftime("%H:%M:%S") for x in CollarData.objects.filter(topic='collar/X')]
+
+        context['bellow_data'] = [float(x.message) for x in CollarData.objects.filter(topic='collar/bellowing')]
+        context['bellow_ts'] = [x.timestamp.strftime("%H:%M:%S") for x in
+                                CollarData.objects.filter(topic='collar/bellowing')]
+
+        # random.choice([1, 1, 1, 0, 1]) if float(x.message) == 1 else
+        context['ketosis_data'] = [1 if float(x.message) == 1 else 0 for x in CollarData.objects.filter(topic='collar/ketosis')]
+        context['ketosis_ts'] = [x.timestamp.strftime("%H:%M:%S") for x in
+                                 CollarData.objects.filter(topic='collar/ketosis')]
+
+        context['mvmt_data'] = [random.choice([1, 0, 0, 1]) if x.message == 'ACTIVITY' else 0 for x in
+                                CollarData.objects.filter(topic='leg/mvmt/')]
+        context['mvmt_ts'] = [x.timestamp.strftime("%H:%M:%S") for x in CollarData.objects.filter(topic='leg/mvmt/')]
+
+        return self.render_to_response(context)
+
+
+class ProfileView(TemplateView):
+    template_name = 'dashboard/pages/user/user.html'
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
