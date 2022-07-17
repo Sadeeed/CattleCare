@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../resources/css/topbar.css" />
+    <link rel="stylesheet" href="../resources/css/sidebar.css" />
+    <!-- <link rel="stylesheet" href="../resources/css/layout-home.css" /> -->
+    <link rel="stylesheet" href="../resources/css/details/layout.css" />
+    <link rel="stylesheet" href="../resources/css/cards.css" />
+    <link rel="stylesheet" href="../resources/css/add/colors.css" />
+    <link rel="stylesheet" href="../resources/css/add/style.css" />
+    <link rel="stylesheet" href="../resources/css/details/style.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbarWrapper">
+        <div class="topLeft">
+          <span class="logo">Cattle Care</span>
+        </div>
+        <div class="topRight">
+          <div class="topbarIconContainer">
+            <ion-icon class="icon_size" name="notifications-outline"></ion-icon>
+            <span class="topIconBadge">2</span>
+          </div>
+          <div class="topbarIconContainer">
+            <ion-icon class="icon_size" name="globe-outline"></ion-icon>
+            <span class="topIconBadge">2</span>
+          </div>
+          <div class="topbarIconContainer">
+            <ion-icon class="icon_size" name="settings-outline"></ion-icon>
+          </div>
+          <img src="../resources/images/sadeed.jpeg" alt="" class="topAvatar" />
+        </div>
+      </div>
+    </div>
+    <!--End of topbar-->
+
+    <div class="main-home">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebarMenu">
+          <ul class="sidebarList">
+            <li class="sidebarListItem">
+              <a class="sidebarIcon link" href="../index.html"> Home </a>
+            </li>
+
+            <li class="sidebarListItem">
+              <a class="sidebarIcon"> Add New </a>
+            </li>
+            <li class="sidebarListItem">
+              <a class="sidebarIcon"> Details </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--End of sidebar-->
+
+      <div class="dashboard_home">
+        <div class="container">
+          <div class="py-5 text-center">
+            <img
+              class="d-block mx-auto mb-4 logo"
+              src="../resources/images/logo-gray.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <h2 class="sensors-heading">Sensors Raw Parameters </h2>
+        <div class="dashboard_home_strip1">
+          <div class="three-sensors1">
+              <h2 style="color: black; text-align: center;margin-top: 25px;">Temperature</h2>
+              <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">36 °C</p>
+          </div>
+          <div class="three-sensors2">
+              <h2 style="color: black; text-align: center;margin-top: 25px;">Heart Rate</h2>
+              <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">36 BPM</p>
+          </div>
+          <div class="three-sensors3">
+              <h2 style="color: black; text-align: center;margin-top: 25px;">Ketosis</h2>
+              <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">Not Detected</p>
+          </div>
+        </div>
+
+        <div class="dashboard_home_strip2">
+          <div class="three-sensors1 ">
+              <h2 style="color: black; text-align: center;margin-top: 25px;">Feed Intake</h2>
+              <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">Idle</p>
+          </div>
+          <div class="two-sensors">
+              <h2 style="color: black; text-align: center;margin-top: 25px;">Movement</h2>
+              <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">Idle</p>
+          </div>
+        </div>
+
+        
+
+        <h2 class="ann-heading">Processed data from ANN </h2>
+        <div class="dashboard_home_strip3">
+          <div class="first-disease"></div>
+          <div class="second-disease"></div>
+          <div class="third-disease"></div>
+        </div>
+
+        <h2 class="chart-heading">Variations of cattle health perameters over time</h2>
+        <div class="charts-container">
+          <div class="chart-wraper">
+            <h3 class="inchart-heading">Temperature</h3>
+            <canvas id="myChart1"></canvas>
+          </div>
+          <div class="chart-wraper">
+            <h3 class="inchart-heading">Heart Rate</h3>
+            <canvas id="myChart2"></canvas>
+          </div>
+        </div>
+
+        <div class="charts-container">
+          <div class="chart-wraper">
+            <h3 class="inchart-heading">Gas Sensor</h3>
+            <canvas id="myChart3"></canvas>
+          </div>
+          <div class="chart-wraper">
+            <h3 class="inchart-heading">Feed Intake</h3>
+            <canvas id="myChart4"></canvas>
+          </div>
+        </div>
+
+        <div class="charts-container">
+          <div class="chart-wraper">
+            <h3 class="inchart-heading">Cattle Movement</h3>
+            <canvas id="myChart5"></canvas>
+          </div>
+          
+        </div>
+
+        <footer class=" pt-5 text-muted text-center text-small footer-center">
+          <p class="mb-1">&copy; 2017-2018 Company Name</p>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a class="color-primary" href="#">Privacy</a>
+            </li>
+            <li class="list-inline-item">
+              <a class="color-primary" href="#">Terms</a>
+            </li>
+            <li class="list-inline-item">
+              <a class="color-primary" href="#">Support</a>
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+    <!-- ion icons cdn-->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="./details.js"></script>
+  </body>
+</html>

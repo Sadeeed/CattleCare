@@ -1,0 +1,49 @@
+.charts-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.chart-wraper {
+  background-color: rgb(233, 232, 232);
+  margin-bottom: 50px;
+  padding: 30px;
+  padding-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chart-wraper canvas {
+  width: 400px;
+  height: 600px;
+  color: white;
+}
+
+.chart-heading {
+  margin-top: 90px;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 300;
+
+  color: gray;
+}
+
+.inchart-heading {
+  /* margin-left: 130px; */
+  text-align: center;
+  color: gray;
+}
+
+.sensors-heading {
+  font-weight: 300;
+  display: block;
+  text-align: center;
+  color: gray;
+}
+
+.ann-heading {
+  font-weight: 300;
+  display: block;
+  color: gray;
+  margin-top: 90px;
+  text-align: center;
+}

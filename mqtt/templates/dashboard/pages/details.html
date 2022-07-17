@@ -1,0 +1,208 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="py-5 text-center">
+            <img
+                    class="d-block mx-auto mb-4 logo"
+                    src="{% static 'images/logo-gray.png' %}"
+                    alt=""
+            />
+        </div>
+    </div>
+    <h2 class="sensors-heading">Sensors Raw Parameters </h2>
+    <div class="dashboard_home_strip1">
+        <div class="three-sensors1">
+            <h2 style="color: black; text-align: center;margin-top: 25px;">Temperature</h2>
+            <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">36 °C</p>
+        </div>
+        <div class="three-sensors2">
+            <h2 style="color: black; text-align: center;margin-top: 25px;">Heart Rate</h2>
+            <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">36 BPM</p>
+        </div>
+        <div class="three-sensors3">
+            <h2 style="color: black; text-align: center;margin-top: 25px;">Ketosis</h2>
+            <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">Not
+                Detected</p>
+        </div>
+    </div>
+
+    <div class="dashboard_home_strip2">
+        <div class="three-sensors1 ">
+            <h2 style="color: black; text-align: center;margin-top: 25px;">Feed Intake</h2>
+            <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">Idle</p>
+        </div>
+        <div class="two-sensors">
+            <h2 style="color: black; text-align: center;margin-top: 25px;">Movement</h2>
+            <p style="color: black; text-align: center;margin-top: 10px;margin-bottom: 10px;font-size: 45px;">Idle</p>
+        </div>
+    </div>
+
+    <h2 class="chart-heading">Variations of cattle health parameters over time</h2>
+    <div class="charts-container">
+        <div class="chart-wraper">
+            <h3 class="inchart-heading">Temperature</h3>
+            <canvas id="myChart1"></canvas>
+        </div>
+        <div class="chart-wraper">
+            <h3 class="inchart-heading">Heart Rate</h3>
+            <canvas id="myChart2"></canvas>
+        </div>
+    </div>
+
+    <div class="charts-container">
+        <div class="chart-wraper">
+            <h3 class="inchart-heading">Gas Sensor</h3>
+            <canvas id="myChart3"></canvas>
+        </div>
+        <div class="chart-wraper">
+            <h3 class="inchart-heading">Feed Intake</h3>
+            <canvas id="myChart4"></canvas>
+        </div>
+    </div>
+
+    <div class="charts-container">
+        <div class="chart-wraper">
+            <h3 class="inchart-heading">Cattle Movement</h3>
+            <canvas id="myChart5"></canvas>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block extraJs %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+    <!-- ion icons cdn-->
+    <script
+            type="module"
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+            nomodule
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script>
+        const labels = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'values over time',
+                backgroundColor: '#0cc2aa',
+                borderColor: '#0cc2aa',
+                data: [0, 10, 5, 2, 20, 30],
+            }]
+        };
+
+        const temperature = {
+            labels: labels,
+            datasets: [{
+                label: 'values over time',
+                backgroundColor: '#0cc2aa',
+                borderColor: '#0cc2aa',
+                data: [35.02, 35.88, 35.88, 35.75, 35.94, 36],
+            }]
+        };
+
+        const bpm = {
+            labels: labels,
+            datasets: [{
+                label: 'values over time',
+                backgroundColor: '#0cc2aa',
+                borderColor: '#0cc2aa',
+                data: [29, 35, 36, 37, 39, 36],
+            }]
+        };
+
+        const ketosis = {
+            labels: labels,
+            datasets: [{
+                label: 'values over time',
+                backgroundColor: '#0cc2aa',
+                borderColor: '#0cc2aa',
+                data: [0, 0, 1, 0, 0, 0],
+            }]
+        };
+
+        const mvmt = {
+            labels: labels,
+            datasets: [{
+                label: 'values over time',
+                backgroundColor: '#0cc2aa',
+                borderColor: '#0cc2aa',
+                data: [1, 1, 1, 0, 1, 0],
+            }]
+        };
+
+        const temperature_config = {
+            type: 'line',
+            data: temperature,
+            options: {}
+        };
+
+        const bpm_config = {
+            type: 'line',
+            data: bpm,
+            options: {}
+        };
+
+        const ketosis_config = {
+            type: 'line',
+            data: ketosis,
+            options: {}
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+        };
+
+        const mvmt_config = {
+            type: 'line',
+            data: mvmt,
+            options: {}
+        };
+
+
+        const myChart1 = new Chart(
+            document.getElementById('myChart1'),
+            temperature_config
+        );
+
+        const myChart2 = new Chart(
+            document.getElementById('myChart2'),
+            bpm_config
+        );
+
+        const myChart3 = new Chart(
+            document.getElementById('myChart3'),
+            ketosis_config
+        );
+
+        const myChart4 = new Chart(
+            document.getElementById('myChart4'),
+            config
+        );
+
+        const myChart5 = new Chart(
+            document.getElementById('myChart5'),
+            mvmt_config
+        );
+
+        const myChart6 = new Chart(
+            document.getElementById('myChart6'),
+            config
+        );
+    </script>
+{% endblock %}

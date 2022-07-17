@@ -1,0 +1,103 @@
+.main-home {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #0c181fd8;
+  color: white;
+}
+
+.dashboard_home{
+  width: 82%;
+  padding-left: 50px;
+  padding-right: 50px;
+ 
+}
+
+.link,
+.link:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.dashboard_home_strip1 {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  background-color: rgb(255, 255, 255);
+  width: 94%;
+  height: 27vh;
+  justify-content: space-between;
+}
+
+.dashboard_home_strip2 {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  background-color: rgb(255, 255, 255);
+  width: 94%;
+  height: 27vh;
+  
+}
+
+.three-sensors1 {
+ background-color: rgb(246, 246, 246);
+  width: 33.33%;
+  
+}
+
+.three-sensors2 {
+  background-color: rgb(236, 236, 236);
+  width: 33.33%;
+  
+}
+
+.three-sensors3 {
+  background-color: rgb(226, 226, 226);
+    width: 33.33%;
+   
+}
+
+.two-sensors {
+  background-color: rgb(226, 226, 226);
+  width: 66.666%;
+  
+}
+
+.dashboard_home_strip3 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  width: 94%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.first-disease {
+  background-color: rgb(255, 255, 255);
+  height: 30vh;
+  width: 31%;
+}
+
+.second-disease {
+  background-color: rgb(255, 255, 255);
+  height: 30vh;
+  width: 31%;
+}
+
+.third-disease {
+  background-color: rgb(255, 255, 255);
+  height: 30vh;
+  width: 31%;
+}
+
+
+.footer-center {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  display: inline-block;
+  margin-left: 50%;
+  transform: translate(-50%);
+}

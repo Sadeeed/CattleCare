@@ -1,0 +1,27 @@
+.card-wrapper {
+  width: 96.5%;
+  margin-top: 90px;
+  margin-bottom: 70px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dashboard_home_cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard_home_card {
+  margin-top: 20px;
+  background-color: rgb(255, 255, 255);
+  width: 31%;
+  height: 30vh;
+}
+
+.dashboard_home_cards-2nd {
+  width: 95%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
