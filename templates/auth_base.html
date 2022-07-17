@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login</title>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+    <!-- Bootstrap Minified CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/glyphicons/glyphicons.css' %}"/>
+    <link
+            rel="stylesheet"
+            href="{% static 'css/material-design-icons/material-design-icons.css' %}"
+    />
+    <link
+            rel="stylesheet"
+            href="{% static 'css/font-awesome/css/font-awesome.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/font.css' %}" type="text/css"/>
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/authentication/style.css' %}"/>
+</head>
+
+<body>
+
+{% block content %}{% endblock %}
+
+<script src="{% static 'js/jquery.js' %}"></script>
+
+<script src="{% static 'js/tether.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+
+<script src="{% static 'js/underscore-min.js' %}"></script>
+<script src="{% static 'js/jquery.storageapi.min.js' %}"></script>
+<script src="{% static 'js/pace.min.js' %}"></script>
+
+<script src="{% static 'js/authentication/scripts/config.lazyload.js' %}"></script>
+
+<script src="{% static 'js/authentication/scripts/palette.js' %}"></script>
+<script src="{% static 'js/authentication/scripts/ui-load.js' %}"></script>
+<script src="{% static 'js/authentication/scripts/ui-jp.js' %}"></script>
+<script src="{% static 'js/authentication/scripts/ui-include.js' %}"></script>
+<script src="{% static 'js/authentication/scripts/ui-device.js' %}"></script>
+<script src="{% static 'js/authentication/scripts/ui-form.js' %}"></script>
+<script src="{% static 'js/authentication/scripts/ui-nav.js' %}"></script>
+<script src="{% static 'js/authentication/scripts/ui-screenfull.js' %}"></script>
+<script src="{% static 'js/authentication/scripts/ui-scroll-to.js' %}"></script>
+<script src="{% static 'js/authentication/scripts/ui-toggle-class.js' %}"></script>
+
+<script src="{% static 'js/authentication/scripts/app.js' %}"></script>
+
+<script src="{% static 'js/jquery.pjax.js' %}"></script>
+<script src="{% static 'js/authentication/scripts/config.lazyload.js' %}"></script>
+</body>
+</html>

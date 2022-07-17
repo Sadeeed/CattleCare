@@ -11,21 +11,44 @@ class IndexView(TemplateView):
 
 
 class DashboardView(LoginRequiredMixin, TemplateView):
-    template_name = 'dashboard.html'
+    template_name = 'dashboard/index.html'
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
         mqtt.client.loop_start()
-        context["temperature"] = CollarData.objects.filter(topic='collar/temperature').last()
-        context["bellowing"] = CollarData.objects.filter(topic='collar/bellowing').last()
-        context["X"] = CollarData.objects.filter(topic='collar/accel/X').last()
-        context["Y"] = CollarData.objects.filter(topic='collar/accel/Y').last()
-        context["Z"] = CollarData.objects.filter(topic='collar/accel/Z').last()
-        context["bpm"] = CollarData.objects.filter(topic='collar/bpm').last()
+        # context["temperature"] = CollarData.objects.filter(topic='collar/temperature').last()
+        # context["bellowing"] = CollarData.objects.filter(topic='collar/bellowing').last()
+        # context["X"] = CollarData.objects.filter(topic='collar/accel/X').last()
+        # context["Y"] = CollarData.objects.filter(topic='collar/accel/Y').last()
+        # context["Z"] = CollarData.objects.filter(topic='collar/accel/Z').last()
+        # context["bpm"] = CollarData.objects.filter(topic='collar/bpm').last()
+        # context['data'] = CollarData.objects.all().order_by('-timestamp')
+
+        temperature = CollarData.objects.filter(topic='collar/temperature')
+        bellow = CollarData.objects.filter(topic='collar/bellowing')
+        X = CollarData.objects.filter(topic='collar/accel/X')
+        Y = CollarData.objects.filter(topic='collar/accel/Y')
+        Z = CollarData.objects.filter(topic='collar/accel/Z')
+        bpm = CollarData.objects.filter(topic='collar/bpm')
+        ketosis = CollarData.objects.filter(topic='collar/ketosis')
+
+        data = zip(X, Y, Z, temperature, bellow, bpm, ketosis)
+
+        for x, y, z, t, b, hr, k in data:
+            print(f"[{x}, {y}, {z}, {t}, {b}, {hr}, {k}]")
+
         return self.render_to_response(context)
 
 
-class dbToCSVView(TemplateView):
+class DashboardDetailsView(TemplateView):
+    template_name = 'dashboard/pages/details.html'
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)
+
+
+class DbToCSVView(TemplateView):
     template_name = 'temp.html'
 
     def get(self, request, *args, **kwargs):

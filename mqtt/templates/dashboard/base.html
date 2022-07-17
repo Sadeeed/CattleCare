@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+
+    <!--Bootstrap CDN link-->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+     crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <link
+            rel="stylesheet"
+            href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/dashboard/sidebar.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/dashboard/topbar.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/dashboard/layout-home.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/dashboard/search.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/dashboard/cards.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/button.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/dashboard/table.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/dashboard/add/colors.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/dashboard/details/layout.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/dashboard/add/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/dashboard/details/style.css' %}"/>
+</head>
+<body>
+<!-- Topbar -->
+<div class="topbar">
+    <div class="topbarWrapper">
+        <div class="topLeft">
+            <span class="logo">Cattle Care</span>
+        </div>
+        <div class="topRight">
+            <div class="topbarIconContainer">
+                <ion-icon class="icon_size" name="notifications-outline"></ion-icon>
+                <span class="topIconBadge">2</span>
+            </div>
+            <div class="topbarIconContainer">
+                <ion-icon class="icon_size" name="globe-outline"></ion-icon>
+                <span class="topIconBadge">2</span>
+            </div>
+            <div class="topbarIconContainer">
+                <ion-icon class="icon_size" name="settings-outline"></ion-icon>
+            </div>
+            <img src="{% static 'images/talha.jpeg' %}" alt="" class="topAvatar"/>
+        </div>
+    </div>
+</div>
+<!--End of topbar-->
+
+<div class="main-home">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebarMenu">
+            <ul class="sidebarList">
+                <li class="sidebarListItem">
+                    <a class="sidebarIcon" href="{% url 'dashboard' %}"> Home </a>
+                </li>
+                <li class="sidebarListItem">
+                    <a class="sidebarIcon" href="{% url 'dashboard-details' %}"> Details </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--End of sidebar-->
+
+    <div class="dashboard_home">
+        {% block content %}{% endblock %}
+        <footer class=" pt-5 text-muted text-center text-small footer-center">
+            <p class="mb-1">&copy; 2021-2022 CattleCare</p>
+{#            <ul class="list-inline">#}
+{#                <li class="list-inline-item">#}
+{#                    <a class="color-primary" href="#">Privacy</a>#}
+{#                </li>#}
+{#                <li class="list-inline-item">#}
+{#                    <a class="color-primary" href="#">Terms</a>#}
+{#                </li>#}
+{#                <li class="list-inline-item">#}
+{#                    <a class="color-primary" href="#">Support</a>#}
+{#                </li>#}
+{#            </ul>#}
+        </footer>
+    </div>
+</div>
+
+{% block extraJs %}{% endblock %}
+
+</body>
+</html>
