@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+    {{ data }}
     <div>
         <img
                 style="margin-top: 20px"
@@ -12,46 +13,44 @@
         <p class="paragraph-center">
             Welcome to the Cattle Care Administration dashboard where you can
             view cattle records registered <br/>
-            with this system and edit or update any record or you can also
-            dleete any record of cattle if it is no <br/>
-            more in the system
+            with this system
         </p>
         <p></p>
     </div>
 
     <!-- search box -->
-{#    <form action="#" class="searchbox_home form-width">#}
-{#        <div class="input-group input-group-lg">#}
-{#            <input#}
-{#                    type="text"#}
-{#                    class="form-control"#}
-{#                    placeholder="Type keyword"#}
-{#            />#}
-{#            <span class="input-group-btn">#}
-{#              <button#}
-{#                      class="btn btn-search b-a no-shadow primary"#}
-{#                      type="button"#}
-{#              >#}
-{#                Search#}
-{#              </button>#}
-{#            </span>#}
-{#        </div>#}
-{#    </form>#}
+    {#    <form action="#" class="searchbox_home form-width">#}
+    {#        <div class="input-group input-group-lg">#}
+    {#            <input#}
+    {#                    type="text"#}
+    {#                    class="form-control"#}
+    {#                    placeholder="Type keyword"#}
+    {#            />#}
+    {#            <span class="input-group-btn">#}
+    {#              <button#}
+    {#                      class="btn btn-search b-a no-shadow primary"#}
+    {#                      type="button"#}
+    {#              >#}
+    {#                Search#}
+    {#              </button>#}
+    {#            </span>#}
+    {#        </div>#}
+    {#    </form>#}
     <!--end of search box  -->
 
     <!-- cards -->
-{#    <div class="card-wrapper">#}
-{#        <p class="paragraph-center">#}
-{#            Current statistics of all the cattle registered with the system#}
-{#        </p>#}
-{#        <div class="dashboard_home_cards">#}
-{#            <div class="dashboard_home_card"></div>#}
-{##}
-{#            <div class="dashboard_home_card"></div>#}
-{##}
-{#            <div class="dashboard_home_card"></div>#}
-{#        </div>#}
-{#    </div>#}
+    {#    <div class="card-wrapper">#}
+    {#        <p class="paragraph-center">#}
+    {#            Current statistics of all the cattle registered with the system#}
+    {#        </p>#}
+    {#        <div class="dashboard_home_cards">#}
+    {#            <div class="dashboard_home_card"></div>#}
+    {##}
+    {#            <div class="dashboard_home_card"></div>#}
+    {##}
+    {#            <div class="dashboard_home_card"></div>#}
+    {#        </div>#}
+    {#    </div>#}
     <!-- ending of cards -->
 
     <!-- Starting code of data table -->
@@ -69,13 +68,13 @@
                         </div>
                         <div class="col-sm-8 add_flex">
                             <div class="form-group searchInput">
-{#                                <label for="email">Search:</label>#}
-{#                                <input#}
-{#                                        type="search"#}
-{#                                        class="form-control"#}
-{#                                        id="filterbox"#}
-{#                                        placeholder=" "#}
-{#                                />#}
+                                {#                                <label for="email">Search:</label>#}
+                                {#                                <input#}
+                                {#                                        type="search"#}
+                                {#                                        class="form-control"#}
+                                {#                                        id="filterbox"#}
+                                {#                                        placeholder=" "#}
+                                {#                                />#}
                             </div>
                         </div>
                     </div>
@@ -99,56 +98,55 @@
                                 <th style="min-width: 100px">Movement</th>
                                 <th style="min-width: 100px">Acetone</th>
                                 <th style="min-width: 150px">Date</th>
-{#                                <th style="min-width: 150px">Action</th>#}
+                                {#                                <th style="min-width: 150px">Action</th>#}
                             </tr>
                             </thead>
                             <tbody>
-                            {% for d in data %}
-                            <tr>
-                                <td>{{ d.id }}</td>
-{#                                <td>#}
-{#                                    <span class="mode mode_process">Active</span>#}
-{#                                </td>#}
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>70</td>
-{#                                <td><span class="mode mode_on">Healthy</span></td>#}
-                                <td>{{ timestamp|date:"SHORT_DATE_FORMAT" }}</td>
+                            {% for x, y, z, t, b, hr, k, m in data %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ x.message }}</td>
+                                    <td>{{ y.message }}</td>
+                                    <td>{{ z.message }}</td>
+                                    <td>{{ t.message }}</td>
+                                    <td>{{ hr.message }}</td>
+                                    <td>{{ b.message }}</td>
+                                    <td>{{ m.message }}</td>
+                                    <td>{{ k.message }}</td>
+                                    {#                                <td><span class="mode mode_on">Healthy</span></td>#}
+                                    <td>{{ x.timestamp|date:"SHORT_DATE_FORMAT" }}</td>
 
-                            </tr>
+                                </tr>
                             {% endfor %}
 
-{#                            <tr>#}
-{#                                <td>1</td>#}
-{#                                <td><span class="mode mode_done">Inactive</span></td>#}
-{#                                <td>38</td>#}
-{##}
-{#                                <td>70</td>#}
-{#                                <td><span class="mode mode_off">Fever</span></td>#}
-{#                                <td>17-Apr-2020</td>#}
-{##}
-{#                                <td>#}
-{#                                    <div class="btn-group">#}
-{#                                        <a class="dropdown_icon">#}
-{#                                            <i class="fa fa-pencil-square-o"></i>#}
-{#                                        </a>#}
-{#                                    </div>#}
-{#                                    <span class="actionCust">#}
-{#                            <a href="#"><i class="fa fa-line-chart"></i></a>#}
-{#                          </span>#}
-{#                                    <div class="btn-group">#}
-{#                                        <a class="dropdown_icon">#}
-{#                                            <ion-icon#}
-{#                                                    class="delete-icon"#}
-{#                                                    name="trash-outline"#}
-{#                                            ></ion-icon>#}
-{#                                        </a>#}
-{#                                    </div>#}
-{#                                </td>#}
-{#                            </tr>#}
+                            {#                            <tr>#}
+                            {#                                <td>1</td>#}
+                            {#                                <td><span class="mode mode_done">Inactive</span></td>#}
+                            {#                                <td>38</td>#}
+                            {##}
+                            {#                                <td>70</td>#}
+                            {#                                <td><span class="mode mode_off">Fever</span></td>#}
+                            {#                                <td>17-Apr-2020</td>#}
+                            {##}
+                            {#                                <td>#}
+                            {#                                    <div class="btn-group">#}
+                            {#                                        <a class="dropdown_icon">#}
+                            {#                                            <i class="fa fa-pencil-square-o"></i>#}
+                            {#                                        </a>#}
+                            {#                                    </div>#}
+                            {#                                    <span class="actionCust">#}
+                            {#                            <a href="#"><i class="fa fa-line-chart"></i></a>#}
+                            {#                          </span>#}
+                            {#                                    <div class="btn-group">#}
+                            {#                                        <a class="dropdown_icon">#}
+                            {#                                            <ion-icon#}
+                            {#                                                    class="delete-icon"#}
+                            {#                                                    name="trash-outline"#}
+                            {#                                            ></ion-icon>#}
+                            {#                                        </a>#}
+                            {#                                    </div>#}
+                            {#                                </td>#}
+                            {#                            </tr>#}
                             </tbody>
                         </table>
                     </div>
@@ -172,5 +170,5 @@
             nomodule
             src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
-    <script src="./resources/js/table.js"></script>
+    <script src="{% static 'js/table.js' %}"></script>
 {% endblock %}

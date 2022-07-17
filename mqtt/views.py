@@ -24,11 +24,23 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         Z = CollarData.objects.filter(topic='collar/accel/Z')
         bpm = CollarData.objects.filter(topic='collar/bpm')
         ketosis = CollarData.objects.filter(topic='collar/ketosis')
+        mvmt = CollarData.objects.filter(topic='leg/mvmt/')
 
-        data = zip(X, Y, Z, temperature, bellow, bpm, ketosis)
+        context['temperature'] = temperature
+        context['bellow'] = bellow
+        context['X'] = X
+        context['Y'] = Y
+        context['Z'] = Z
+        context['bpm'] = bpm
+        context['ketosis'] = ketosis
+        context['mvmt'] = mvmt
 
-        for x, y, z, t, b, hr, k in data:
-            print(f"[{x}, {y}, {z}, {t}, {b}, {hr}, {k}]")
+        data = zip(X, Y, Z, temperature, bellow, bpm, ketosis, mvmt)
+
+        context['data'] = data
+
+        for x, y, z, t, b, hr, k, m in data:
+            print(f"[{x.message}, {y.message}, {z.message}, {t.message}, {b.message}, {hr.message}, {k.message}]")
 
         return self.render_to_response(context)
 
